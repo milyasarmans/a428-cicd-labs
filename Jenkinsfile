@@ -23,5 +23,10 @@
                     sh './jenkins/scripts/kill.sh' 
                 }
             }
+            stage('Manual Approval') { 
+                steps {
+                    input message: 'Lanjutkan ke tahap Deploy?' 
+                }
+            }
         }
     }
