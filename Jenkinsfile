@@ -17,6 +17,9 @@
                 }
             } 
             stage('Deploy') { 
+                options {
+                    timeout(time: 1, unit: 'MINUTES')
+                }
                 steps {
                     sh './jenkins/scripts/deliver.sh' 
                     input message: 'Sudah selesai menggunakan React App? (Klik "Proceed" untuk mengakhiri)' 
