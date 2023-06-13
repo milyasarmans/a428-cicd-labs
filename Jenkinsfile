@@ -11,11 +11,6 @@
                     sh 'npm install'
                 }
             }
-            stage('Test') { 
-                steps {
-                    sh './jenkins/scripts/test.sh' 
-                }
-            } 
             stage('Manual Approval') { 
                 steps {
                     input message: 'Lanjutkan ke tahap Deploy?' 
@@ -31,5 +26,10 @@
                     sh './jenkins/scripts/kill.sh' 
                 }
             }
+            stage('Test') { 
+                steps {
+                    sh './jenkins/scripts/test.sh' 
+                }
+            } 
         }
     }
